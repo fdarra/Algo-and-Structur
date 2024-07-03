@@ -1,0 +1,36 @@
+ALGORITHM checkpointAlgorithm
+VAR
+char_cpt,word_cpt,voy_cpt :INTEGER : 0 ;
+str : STRING :"";
+voy : CHAR[] :[a,A,e,E,u,U,i,I,o,O,w,W];
+
+
+BEGIN
+word_cpt:=+1;
+REPEAT
+ write("veuillez commencer à saisir.");
+read(str);
+UNTIL (str.lenght()<= 1 && str.charAt(str.lenght()-1)<>'.')
+
+
+
+FOR i FROM 0 TO str.lenght() STEP 1++  DO
+    if(str.charAt(i) ==" ") then word_cpt++;
+END_FOR
+ 
+FOR i FROM 0 TO str.lenght() STEP 1++  DO
+ b:BOOLEAN:false ;
+ j:INTEGER:0;
+ WHILE (b==false && j < voy.lenght ) DO
+   if(str.charAt(i)== voy[j]) then b:=true; voy_cptr++;
+    else j++;
+ END_WHILE
+
+ END_FOR
+
+ char_cptr = str.length()- word_cpt -1;
+
+write("L aparagraphe contient"+ char_cpt + " charactres" );
+write("L aparagraphe contient"+ word_cpt + " mots" );
+write("L aparagraphe contient"+ voy_cpt + " voyelles" );
+END
